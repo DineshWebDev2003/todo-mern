@@ -8,7 +8,7 @@ function App() {
 
   // Fetch all todos
   useEffect(() => {
-    axios.get('http://localhost:5000/api/todos')
+    axios.get('https://todo-mern-bdqk.onrender.com')
       .then(response => setTodos(response.data))
       .catch(error => console.log(error));
   }, []);
@@ -16,7 +16,7 @@ function App() {
   // Add new todo
   const addTodo = () => {
     if (newTask.trim()) {
-      axios.post('http://localhost:5000/api/todos', { task: newTask })
+      axios.post('https://todo-mern-bdqk.onrender.com', { task: newTask })
         .then(response => setTodos([...todos, response.data]))
         .catch(error => console.log(error));
       setNewTask('');
@@ -25,7 +25,7 @@ function App() {
 
   // Update todo
   const updateTodo = (id, updatedTask, isCompleted) => {
-    axios.put(`http://localhost:5000/api/todos/${id}`, { task: updatedTask, isCompleted })
+    axios.put(`https://todo-mern-bdqk.onrender.com/${id}`, { task: updatedTask, isCompleted })
       .then(response => {
         setTodos(todos.map(todo => (todo._id === id ? response.data : todo)));
       })
@@ -34,7 +34,7 @@ function App() {
 
   // Delete todo
   const deleteTodo = (id) => {
-    axios.delete(`http://localhost:5000/api/todos/${id}`)
+    axios.delete(`https://todo-mern-bdqk.onrender.com/${id}`)
       .then(() => setTodos(todos.filter(todo => todo._id !== id)))
       .catch(error => console.log(error));
   };
