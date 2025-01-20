@@ -25,7 +25,7 @@ function App() {
 
   // Update todo
   const updateTodo = (id, updatedTask, isCompleted) => {
-    axios.put(`https://todo-mern-bdqk.onrender.com/${id}`, { task: updatedTask, isCompleted })
+    axios.put(`https://todo-mern-bdqk.onrender.com${id}`, { task: updatedTask, isCompleted })
       .then(response => {
         setTodos(todos.map(todo => (todo._id === id ? response.data : todo)));
       })
